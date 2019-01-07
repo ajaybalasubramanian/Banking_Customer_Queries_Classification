@@ -1,0 +1,21 @@
+1. What has been done?
+WE have collected data from consumercomplain website. Database contains 1,192,904 total complaints with 18+ products and 61+ Issues. For this prototype we have considered 6 products each with 100 issues and total 36 issues.
+
+Data can be downloaded from - https://www.consumerfinance.gov/data-research/consumer-complaints/search/?from=0&searchField=all&searchText=&size=25&sort=created_date_desc
+
+There are thousands of issues for each product and issue. But we have selected only 100 for each because taking more then 500-1000 complains for classification takes lots of time in training. 
+
+We applied some preprocessing on consumer complain data and converted it into usable format. 
+
+After thatwe trained this product and issue data SVM classifier. We store this svm model in pickle file. So next time when we required to run we can directly load model from this picle without using much time. This model can be used to test any complain which will provide your product and issue class score. 
+
+2. what remains to be done
+We just wrote dirty code which preprocess data and generate model. It required some amount of time in code formating and structure. Also model has been trained on very limited dataset due to Infra constraint. Model will surely perform well when we train it with larger dataset. We have considered 6 product and 31 issues. We can increase this dataset and expand our model.
+
+3. barrier(s) in achieving the goal.
+1. Collecting filtered data from consumer forum. It has 12 lacks of total data and fails when we apply filter and download it. So from entire datadump randomly picked products and Issues. 
+
+2. Infra issue. We need highly capable system to train the model. Currenly it take more then 30 minutes on my machine to train on 500 record training
+
+3. Many classes are very close to each other in terms data points. So when we use small trainig dataset it is not classifying very accurately
+
